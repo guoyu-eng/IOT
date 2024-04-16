@@ -17,10 +17,17 @@ except Exception as e:
 ser = serial.Serial('/dev/rfcomm0', baudrate=9600)
 
 while True:
-    if ser.in_waiting > 0:
-        # Read data from serial port
+    try:
+        # Attempt to read data from serial port
         data = ser.readline().decode('utf-8').strip()
-        print("Received:", data)
-
-        # Insert data into MongoDB
-        collection.insert_one({"parking_occupancy_data": data})
+        
+        # Check if data is not empty
+        if data:
+            print("Received:", data)
+    
+    except serial.SerialException:
+        # Handle serial exception (timeout)
+        print("No data received within timeout period")
+    
+    # Add a delay to prevent busy looping
+    time.sleep(0.1)
