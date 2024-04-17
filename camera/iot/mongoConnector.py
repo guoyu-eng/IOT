@@ -6,7 +6,7 @@ uri = ("mongodb+srv://digivj05:ypvFt1gqYqJnZW8f@cluster0.esdatxw.mongodb.net/?re
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
 db = client["IOT_APP_DATA"]
-collection = db["parking_occupancy_data"]
+collection = db["parkingOccupancyData"]
 # Send a ping to confirm a successful connection
 try:
     client.admin.command('ping')
@@ -24,6 +24,7 @@ while True:
         # Check if data is not empty
         if data:
             print("Received:", data)
+	    collection.insert_one({"distance": data, "unit": "inches" }) 	
     
     except serial.SerialException:
         # Handle serial exception (timeout)
