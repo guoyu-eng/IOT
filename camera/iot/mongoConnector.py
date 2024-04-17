@@ -25,7 +25,7 @@ while True:
         # Check if data is not empty
         if data:
             print("Received:", data)
-	    collection.insert_one({"distance": data, "unit": "inches" }) 	
+	    collection.insert_one({"distance": data, "unit": "inches", "slotId" : 1 ,"floor" : "Ground" }) 	
     
     except serial.SerialException:
         # Handle serial exception (timeout)
