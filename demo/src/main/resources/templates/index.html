@@ -1,0 +1,143 @@
+
+<!doctype html>
+<html dir="ltr" lang="en"
+      chrome-refresh-2023>
+<head>
+    <meta charset="utf-8">
+    <title>New Tab</title>
+    <base target="_parent">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
+    <link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB5-Pro-Advanced_7.2.0/css/mdb.min.css">
+    <link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB5-Pro-Advanced_7.2.0/plugins/css/all.min.css">
+    <style>
+        html,
+        body,
+        .intro {
+            height: 100%;
+        }
+
+        .gradient-custom-1 {
+            /* fallback for old browsers */
+            background: #cd9cf2;
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: -webkit-linear-gradient(to top, rgba(205, 156, 242, 1), rgba(246, 243, 255, 1));
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: linear-gradient(to top, rgba(205, 156, 242, 1), rgba(246, 243, 255, 1)) display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        table td,
+        table th {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        tbody td {
+            font-weight: 500;
+            color: #999922;
+        }
+
+        INPUT:-webkit-autofill, SELECT:-webkit-autofill, TEXTAREA:-webkit-autofill {
+            animation-name: onautofillstart
+        }
+
+        INPUT:not(:-webkit-autofill), SELECT:not(:-webkit-autofill), TEXTAREA:not(:-webkit-autofill) {
+            animation-name: onautofillcancel
+        }
+
+        @keyframes onautofillstart {
+        }
+
+        @keyframes onautofillcancel {
+        }
+
+        a.button {
+            margin-top: 20px; /* Add margin to button */
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #000000; /* Black button color */
+            color: white; /* White text color */
+            border: 1px solid #000000; /* Black border */
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button {
+            margin-top: 20px; /* Add margin to button */
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #000000; /* Black button color */
+            color: white; /* White text color */
+            border: 1px solid #000000; /* Black border */
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #333333; /* Darker shade of black on hover */
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ffffff; /* White background */
+            display: none; /* Initially hidden */
+        }
+
+        #result h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<section class="intro">
+    <div class="gradient-custom-1 h-100 ">
+        <div class="mask d-flex align-items-center h-100">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="table-responsive bg-white">
+                            <table class="table mb-0">
+                                <div th:switch="${parkingData}">
+                                    <h2 th:case="null">Parking Data Not Available!</h2>
+                                    <div th:case="*">
+                                        <h2>Parking Slots</h2>
+                                        <table>
+                                            <thead>
+                                            <tr>
+                                                <th scope="col" style="color: #000000; font-size: 16px; font-weight: bold;">Floor</th>
+                                                <th scope="col" style="color: #000000; font-size: 16px; font-weight: bold;">SlotNumber</th>
+                                                <th scope="col" style="color: #000000; font-size: 16px; font-weight: bold;">Availability</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="slot : ${parkingData}">
+                                                <td th:text="Ground"  ></td>
+                                                <td th:text="${slot.slotId}"></td>
+                                                <td th:text="${slot.distance} > 5 ? 'Available' : 'Occupied'" />
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+</body>
+</html>

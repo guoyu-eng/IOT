@@ -1,0 +1,8 @@
+logging:
+  level:
+    org.springframework : INFO
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://digivj05:ypvFt1gqYqJnZW8f@cluster0.esdatxw.mongodb.net/IOT_APP_DATA?retryWrites=true&w=majority&appName=Cluster0
+
