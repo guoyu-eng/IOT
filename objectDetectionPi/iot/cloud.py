@@ -87,7 +87,7 @@ def post_data(image_data , isEntry):
         for image in image_data.detections:
             for category in image.categories:
                 print('CLOUD CODE::DETECTED OBJECT CATEGORY ::',category)
-                if category.category_name.lower() == 'person':
+                if category.category_name.lower() == 'car':
                     print('CLOUD CODE::REQUIRED OBJECT DETECTED ::',category)
                     print('CLOUD CODE::REQUIRED OBJECT DETECTED ::',client)
                     client.publish('v1/devices/me/telemetry', json_data, 1)

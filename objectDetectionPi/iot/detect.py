@@ -28,7 +28,7 @@ def find_required_object(image_data):
         for image in image_data.detections:
             for category in image.categories:
                 print('DETECTED OBJECT CATEGORY ::',category)
-                if category.category_name.lower() == 'person':
+                if category.category_name.lower() == 'car':
                     print('REQUIRED OBJECT DETECTED ::',category)
                     return True  
 
