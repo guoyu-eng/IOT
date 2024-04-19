@@ -122,7 +122,7 @@
                                             <tr th:each="slot : ${parkingData}">
                                                 <td th:text="Ground"  ></td>
                                                 <td th:text="${slot.slotId}"></td>
-                                                <td th:text="${slot.distance} > 5 ? 'Available' : 'Occupied'" />
+                                                <td th:text="${slot.distance} > 10 ? 'Available' : 'Occupied'" />
                                             </tr>
                                             </tbody>
                                         </table>

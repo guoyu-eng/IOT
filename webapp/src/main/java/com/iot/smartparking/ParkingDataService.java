@@ -33,7 +33,7 @@ public class ParkingDataService {
             System.out.println(slot.size());
             Collections.sort(slot,new Comparator<ParkingOccupancyData>() {
                 public int compare(ParkingOccupancyData o1, ParkingOccupancyData o2) {
-                    return o1.getId().compareTo(o2.getId());
+                    return o2.getId().compareTo(o1.getId());
                 }
             });
         });
